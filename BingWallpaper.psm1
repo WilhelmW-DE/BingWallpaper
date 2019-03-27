@@ -8,14 +8,14 @@ function Set-BingWallpaper {
 		[int] $Offset = 0
     )
     
-    [String] $url = $("http://www.bing.com/HPImageArchive.aspx?format=xml&idx=" + $Offset +"&n=1&mkt=de-DE")
-    [String] $imgurl = "http://www.bing.com"
+    [String] $url = $("https://www.bing.com/HPImageArchive.aspx?format=xml&idx=" + $Offset +"&n=1&mkt=de-DE")
+    [String] $imgurl = "https://www.bing.com"
 
     # Bildurl parsen
     $wc = New-Object net.webclient
     $xml = [xml] $wc.DownloadString($url)
     $imgurl += $xml.images.image.url.Trim()
-	[String] $FileName = $imgurl -replace '^.+\/([^\/]+)$','$1'
+	[String] $FileName = $imgurl -replace '^.+rf=([^&]+).+$','$1'
 	[String] $FilePath = $(${env:temp} + '\' + $FileName)
 
     Set-ItemProperty -path 'HKCU:\Control Panel\Desktop\' -name wallpaper -value ""

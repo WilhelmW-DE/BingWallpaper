@@ -12,7 +12,7 @@
 RootModule = 'BingWallpaper'
 
 # Die Versionsnummer dieses Moduls
-ModuleVersion = '1.1'
+ModuleVersion = '1.2'
 
 # ID zur eindeutigen Kennzeichnung dieses Moduls
 GUID = 'c0b77676-34dc-4347-b38a-7cf6c6ced52a'
